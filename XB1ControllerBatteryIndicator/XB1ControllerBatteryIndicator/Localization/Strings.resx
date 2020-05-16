@@ -195,4 +195,16 @@
   <data name="ContextMenu_LowBatteryWarningSound_Loop_Enabled" xml:space="preserve">
     <value>Repeat on loop</value>
   </data>
+  <data name="ContextMenu_DisplayedIcons" xml:space="preserve">
+	<value>Displayed icons</value>
+  </data>
+  <data name="ContextMenu_ShowWirelessControllersWithKnownBatteryLevel" xml:space="preserve">
+    <value>Wireless controllers battery level</value>
+  </data>
+  <data name="ContextMenu_ShowWirelessControllersWithUnknownBatteryLevel" xml:space="preserve">
+    <value>Wireless controllers with unknown battery level</value>
+  </data>
+  <data name="ContextMenu_ShowWiredControllers" xml:space="preserve">
+    <value>Wired controllers</value>
+  </data>
 </root>

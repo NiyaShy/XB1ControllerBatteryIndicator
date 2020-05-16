@@ -19,7 +19,7 @@ namespace XB1ControllerBatteryIndicator.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -106,6 +106,15 @@ namespace XB1ControllerBatteryIndicator.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Displayed icons.
+        /// </summary>
+        public static string ContextMenu_DisplayedIcons {
+            get {
+                return ResourceManager.GetString("ContextMenu_DisplayedIcons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string ContextMenu_Exit {
@@ -147,6 +156,33 @@ namespace XB1ControllerBatteryIndicator.Localization {
         public static string ContextMenu_LowBatteryWarningSound_Loop_Enabled {
             get {
                 return ResourceManager.GetString("ContextMenu_LowBatteryWarningSound_Loop_Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wired controllers.
+        /// </summary>
+        public static string ContextMenu_ShowWiredControllers {
+            get {
+                return ResourceManager.GetString("ContextMenu_ShowWiredControllers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wireless controllers battery level.
+        /// </summary>
+        public static string ContextMenu_ShowWirelessControllersWithKnownBatteryLevel {
+            get {
+                return ResourceManager.GetString("ContextMenu_ShowWirelessControllersWithKnownBatteryLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wireless controllers with unknown battery level.
+        /// </summary>
+        public static string ContextMenu_ShowWirelessControllersWithUnknownBatteryLevel {
+            get {
+                return ResourceManager.GetString("ContextMenu_ShowWirelessControllersWithUnknownBatteryLevel", resourceCulture);
             }
         }
         

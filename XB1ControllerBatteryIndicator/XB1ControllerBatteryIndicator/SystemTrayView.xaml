@@ -47,6 +47,11 @@
                 <MenuItem x:Name="LowBatteryWarningSound_Enabled" Header="{my:Localization ContextMenu_LowBatteryWarningSound_Enabled}" IsCheckable="True" Click="LowBatteryWarningSound_Enabled_Click" IsChecked="{my:SettingBinding Path=LowBatteryWarningSound_Enabled}" />
                 <MenuItem x:Name="LowBatteryWarningSound_Loop_Enabled" Header="{my:Localization ContextMenu_LowBatteryWarningSound_Loop_Enabled}" IsCheckable="True" Click="LowBatteryWarningSound_Loop_Enabled_Click" IsChecked="{my:SettingBinding Path=LowBatteryWarningSound_Loop_Enabled}" />
             </MenuItem>
+            <MenuItem Header="{my:Localization ContextMenu_DisplayedIcons}" IsCheckable="False" ItemsSource="{Binding Path=DisplayedIcons}" DisplayMemberPath="DisplayName">
+                <MenuItem x:Name="ShowWirelessControllersWithKnownBatteryLevel" Header="{my:Localization ContextMenu_ShowWirelessControllersWithKnownBatteryLevel}" IsChecked="{my:SettingBinding Path=ShowWirelessControllersWithKnownBatteryLevel}" IsCheckable="True" />
+                <MenuItem x:Name="ShowWirelessControllersWithUnknownBatteryLevel" Header="{my:Localization ContextMenu_ShowWirelessControllersWithUnknownBatteryLevel}" IsChecked="{my:SettingBinding Path=ShowWirelessControllersWithUnknownBatteryLevel}" IsCheckable="True" />
+                <MenuItem x:Name="ShowWiredControllers" Header="{my:Localization ContextMenu_ShowWiredControllers}" IsChecked="{my:SettingBinding Path=ShowWiredControllers}" IsCheckable="True" />
+            </MenuItem>
             <Separator/>
             <MenuItem Header="{my:Localization ContextMenu_Exit}" cal:Message.Attach="ExitApplication" />
         </ContextMenu>
