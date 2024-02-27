@@ -1,0 +1,49 @@
+name: MSBuild
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    steps:
+      # Checks-out your repository under %GITHUB_WORKSPACE%, so your job can access it
+      - name: Checkout code
+        uses: actions/checkout@v2.3.3
+      - name: Convert version XML to JSON
+        id: xml2json
+        uses: fabasoad/yaml-json-xml-converter-action@v1.0.2
+        with:
+          path: current_version.xml
+          from: xml
+          to: json
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.2
+      - name: Restore NuGet packages
+        run: |
+          cd XB1ControllerBatteryIndicator
+          nuget restore
+      - name: Build with MSBuild
+        run: |
+          cd XB1ControllerBatteryIndicator
+          msbuild XB1ControllerBatteryIndicator.sln -p:Configuration=${{ matrix.configuration }}
+      - name: Upload build output as artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: XB1ControllerBatteryIndicator-v${{ fromJSON(steps.xml2json.outputs.data).XB1ControllerBatteryIndicator.version }}-${{ matrix.configuration }}
+          path: |
+            XB1ControllerBatteryIndicator/XB1ControllerBatteryIndicator/bin/${{ matrix.configuration }}/*.exe
+            XB1ControllerBatteryIndicator/XB1ControllerBatteryIndicator/bin/${{ matrix.configuration }}/*.exe.config
+            XB1ControllerBatteryIndicator/XB1ControllerBatteryIndicator/bin/${{ matrix.configuration }}/*.exe.manifest
+            XB1ControllerBatteryIndicator/XB1ControllerBatteryIndicator/bin/${{ matrix.configuration }}/*.dll
+            XB1ControllerBatteryIndicator/XB1ControllerBatteryIndicator/bin/${{ matrix.configuration }}/*.pdb
+            XB1ControllerBatteryIndicator/XB1ControllerBatteryIndicator/bin/${{ matrix.configuration }}/app.publish/*
